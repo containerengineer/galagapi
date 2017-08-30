@@ -1,0 +1,26 @@
+ 
+
+<!-- Sidebar component with st-effect-1 (set on the toggle button within the navbar) -->
+<div class="sidebar-chat right sidebar-size-2 sidebar-offset-0 chat-skin-white sidebar-visible-mobile" id=sidebar-chat>
+  
+        <div class="split-vertical">
+        <div class="chat-search">
+          <input type="text" class="form-control" placeholder="Search" />
+        </div>
+
+       
+        <div class="split-vertical-body">
+          <div class="split-vertical-cell">
+            <div data-scrollable>
+              <ul class="chat-contacts">
+                <li class="media" *ngFor="let message_user of messages">
+
+                    <messageuser   [message_user]="message_user"></messageuser>
+
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

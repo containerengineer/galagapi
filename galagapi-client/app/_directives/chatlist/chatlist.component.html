@@ -1,0 +1,28 @@
+<!-- Sidebar component with st-effect-1 (set on the toggle button within the navbar) -->
+<div class="sidebar-chat right sidebar-size-2 sidebar-offset-0 chat-skin-white sidebar-visible-mobile" id=sidebar-chat>
+  
+        <div class="split-vertical">
+        <div class="chat-search">
+          <input type="text" class="form-control" placeholder="Search" />
+        </div>
+
+        <ul class="chat-filter nav nav-pills ">
+          <li class="active"><a href="#" data-target="li">All</a></li>
+          <li><a href="#" data-target=".online">Online</a></li>
+          <li><a href="#" data-target=".offline">Offline</a></li>
+        </ul>
+        <div class="split-vertical-body">
+          <div class="split-vertical-cell">
+            <div data-scrollable>
+              <ul class="chat-contacts">
+                <li class="{{chat_user.user_state}}" *ngFor="let chat_user of chat_users">
+                  <a href="#" >
+                      <chatuser   [chat_user]="chat_user"></chatuser>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

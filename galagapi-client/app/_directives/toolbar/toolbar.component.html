@@ -1,0 +1,19 @@
+<div class="collapse navbar-collapse" id="main-nav">
+  
+
+
+    <navbaruser></navbaruser>
+
+    <navbarform></navbarform>
+ 
+         <ng-template #popContentMessageList> 
+            <messagelist></messagelist>
+        </ng-template>
+        <div class=" pull-right">
+           <button type="button" class="btn  btn-secondary" [ngbPopover]="popContentMessageList"  placement="bottom">
+                <i class="fa fa-envelope-o" ></i>
+            </button>
+        </div>    
+
+
+</div>

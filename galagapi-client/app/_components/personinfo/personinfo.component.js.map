@@ -1,0 +1,1 @@
+{"version":3,"file":"personinfo.component.js","sourceRoot":"","sources":["personinfo.component.ts"],"names":[],"mappings":";;;;;;;;;;;AACA,sCAA0C;AAO1C,IAAa,mBAAmB;IAE9B;IAEA,CAAC;IAEH,0BAAC;AAAD,CAAC,AAND,IAMC;AANY,mBAAmB;IAL/B,gBAAS,CAAC;QACT,QAAQ,EAAE,MAAM,CAAC,EAAE;QACnB,QAAQ,EAAE,YAAY;QACtB,WAAW,EAAC,2BAA2B;KACxC,CAAC;;GACW,mBAAmB,CAM/B;AANY,kDAAmB"}
