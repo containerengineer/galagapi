@@ -11,23 +11,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var modelmessage_1 = require("../../_models/modelmessage");
-var MessageUserComponent = (function () {
+var MessageUserComponent = /** @class */ (function () {
     function MessageUserComponent() {
     }
     MessageUserComponent.prototype.ngOnInit = function () {
     };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", modelmessage_1.Message)
+    ], MessageUserComponent.prototype, "message_user", void 0);
+    MessageUserComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'messageuser',
+            templateUrl: 'messageuser.component.html'
+        })
+    ], MessageUserComponent);
     return MessageUserComponent;
 }());
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", modelmessage_1.Message)
-], MessageUserComponent.prototype, "message_user", void 0);
-MessageUserComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'messageuser',
-        templateUrl: 'messageuser.component.html'
-    })
-], MessageUserComponent);
 exports.MessageUserComponent = MessageUserComponent;
 //# sourceMappingURL=messageuser.component.js.map

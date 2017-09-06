@@ -10,23 +10,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var FixedNavbarComponent = (function () {
+var FixedNavbarComponent = /** @class */ (function () {
     function FixedNavbarComponent() {
         this.name = 'Max';
     }
     FixedNavbarComponent.prototype.sayMyName = function () {
         console.log('My name is', this.name);
     };
+    FixedNavbarComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'fixednavbar',
+            encapsulation: core_1.ViewEncapsulation.None,
+            templateUrl: 'fixednavbar.component.html'
+        }),
+        __metadata("design:paramtypes", [])
+    ], FixedNavbarComponent);
     return FixedNavbarComponent;
 }());
-FixedNavbarComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'fixednavbar',
-        encapsulation: core_1.ViewEncapsulation.None,
-        templateUrl: 'fixednavbar.component.html'
-    }),
-    __metadata("design:paramtypes", [])
-], FixedNavbarComponent);
 exports.FixedNavbarComponent = FixedNavbarComponent;
 //# sourceMappingURL=fixednavbar.component.js.map

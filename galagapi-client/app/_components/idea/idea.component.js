@@ -16,7 +16,7 @@ var router_1 = require("@angular/router");
 var common_1 = require("@angular/common");
 var modelidea_1 = require("../../_models/modelidea");
 var idea_service_1 = require("../../_services/ideaservice/idea.service");
-var IdeaComponent = (function () {
+var IdeaComponent = /** @class */ (function () {
     function IdeaComponent(ideaService, router, location) {
         this.ideaService = ideaService;
         this.router = router;
@@ -49,21 +49,21 @@ var IdeaComponent = (function () {
     IdeaComponent.prototype.goBack = function () {
         this.location.back();
     };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", modelidea_1.Idea)
+    ], IdeaComponent.prototype, "idea", void 0);
+    IdeaComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: '[idea]',
+            templateUrl: 'idea.component.html'
+        }),
+        __metadata("design:paramtypes", [idea_service_1.IdeaService,
+            router_1.Router,
+            common_1.Location])
+    ], IdeaComponent);
     return IdeaComponent;
 }());
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", modelidea_1.Idea)
-], IdeaComponent.prototype, "idea", void 0);
-IdeaComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: '[idea]',
-        templateUrl: 'idea.component.html'
-    }),
-    __metadata("design:paramtypes", [idea_service_1.IdeaService,
-        router_1.Router,
-        common_1.Location])
-], IdeaComponent);
 exports.IdeaComponent = IdeaComponent;
 //# sourceMappingURL=idea.component.js.map

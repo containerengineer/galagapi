@@ -13,7 +13,7 @@ var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 require("rxjs/add/operator/toPromise");
 require("rxjs/add/operator/map");
-var IdeaService = (function () {
+var IdeaService = /** @class */ (function () {
     function IdeaService(http) {
         this.http = http;
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
@@ -65,11 +65,11 @@ var IdeaService = (function () {
         console.error('An error occurred', error);
         return Promise.reject(error.message || error);
     };
+    IdeaService = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [http_1.Http])
+    ], IdeaService);
     return IdeaService;
 }());
-IdeaService = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [http_1.Http])
-], IdeaService);
 exports.IdeaService = IdeaService;
 //# sourceMappingURL=idea.service.js.map

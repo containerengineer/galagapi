@@ -8,7 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var mock_messages_1 = require("../../_services/messageboxservice/mock-messages");
-var MessageBoxService = (function () {
+var MessageBoxService = /** @class */ (function () {
     function MessageBoxService() {
     }
     MessageBoxService.prototype.getMessages = function () {
@@ -22,10 +22,10 @@ var MessageBoxService = (function () {
             setTimeout(function () { return resolve(_this.getMessages()); }, 2000);
         });
     };
+    MessageBoxService = __decorate([
+        core_1.Injectable()
+    ], MessageBoxService);
     return MessageBoxService;
 }());
-MessageBoxService = __decorate([
-    core_1.Injectable()
-], MessageBoxService);
 exports.MessageBoxService = MessageBoxService;
 //# sourceMappingURL=messagebox.service.js.map

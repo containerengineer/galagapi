@@ -42,7 +42,7 @@ import {CommentPanelComponent} from './_components/commentpanel/index';
 import {IdeaComponent} from './_components/idea/index';
 
 import {NgbdCollapseBasic} from './_components/ngcollapsebasic/index';
-import {NgbdDropdownBasic} from './_components/dropdown/index';
+ 
 import {PersonInfoComponent} from './_components/personinfo/index';
 import {NavbarUserComponent} from './_components/navbaruser/index';
 import {NavbarFormComponent} from './_components/navbarform/index';
@@ -78,7 +78,7 @@ import {RegisterComponent} from './register/index';
         FixedNavbarComponent,
         CoverProfileComponent,
         NgbdCollapseBasic,
-        NgbdDropdownBasic,
+ 
         PersonInfoComponent,
         NavbarUserComponent,
         NavbarFormComponent,

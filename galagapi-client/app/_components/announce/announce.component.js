@@ -7,18 +7,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var AnnounceComponent = (function () {
+var AnnounceComponent = /** @class */ (function () {
     function AnnounceComponent() {
     }
+    AnnounceComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'announce',
+            encapsulation: core_1.ViewEncapsulation.None,
+            templateUrl: 'announce.component.html'
+        })
+    ], AnnounceComponent);
     return AnnounceComponent;
 }());
-AnnounceComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'announce',
-        encapsulation: core_1.ViewEncapsulation.None,
-        templateUrl: 'announce.component.html'
-    })
-], AnnounceComponent);
 exports.AnnounceComponent = AnnounceComponent;
 //# sourceMappingURL=announce.component.js.map

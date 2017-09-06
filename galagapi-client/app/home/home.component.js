@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var index_1 = require("../_services/index");
-var HomeComponent = (function () {
+var HomeComponent = /** @class */ (function () {
     function HomeComponent(userService) {
         this.userService = userService;
         this.users = [];
@@ -28,14 +28,14 @@ var HomeComponent = (function () {
         var _this = this;
         this.userService.getAll().subscribe(function (users) { _this.users = users; });
     };
+    HomeComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            templateUrl: 'home.component.html'
+        }),
+        __metadata("design:paramtypes", [index_1.UserService])
+    ], HomeComponent);
     return HomeComponent;
 }());
-HomeComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        templateUrl: 'home.component.html'
-    }),
-    __metadata("design:paramtypes", [index_1.UserService])
-], HomeComponent);
 exports.HomeComponent = HomeComponent;
 //# sourceMappingURL=home.component.js.map

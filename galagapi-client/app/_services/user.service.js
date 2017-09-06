@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
-var UserService = (function () {
+var UserService = /** @class */ (function () {
     function UserService(http) {
         this.http = http;
     }
@@ -39,11 +39,11 @@ var UserService = (function () {
             return new http_1.RequestOptions({ headers: headers });
         }
     };
+    UserService = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [http_1.Http])
+    ], UserService);
     return UserService;
 }());
-UserService = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [http_1.Http])
-], UserService);
 exports.UserService = UserService;
 //# sourceMappingURL=user.service.js.map

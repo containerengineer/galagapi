@@ -7,20 +7,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var ToolbarComponent = (function () {
+var ToolbarComponent = /** @class */ (function () {
     function ToolbarComponent() {
         this.isCollapsed = false;
     }
     ToolbarComponent.prototype.ngOnInit = function () {
     };
+    ToolbarComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'toolbar',
+            templateUrl: 'toolbar.component.html'
+        })
+    ], ToolbarComponent);
     return ToolbarComponent;
 }());
-ToolbarComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'toolbar',
-        templateUrl: 'toolbar.component.html'
-    })
-], ToolbarComponent);
 exports.ToolbarComponent = ToolbarComponent;
 //# sourceMappingURL=toolbar.component.js.map

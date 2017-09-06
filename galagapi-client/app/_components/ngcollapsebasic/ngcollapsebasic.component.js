@@ -7,18 +7,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var NgbdCollapseBasic = (function () {
+var NgbdCollapseBasic = /** @class */ (function () {
     function NgbdCollapseBasic() {
         this.isCollapsed = false;
     }
+    NgbdCollapseBasic = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'ngbd-collapse-basic',
+            templateUrl: 'ngcollapsebasic.component.html'
+        })
+    ], NgbdCollapseBasic);
     return NgbdCollapseBasic;
 }());
-NgbdCollapseBasic = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'ngbd-collapse-basic',
-        templateUrl: 'ngcollapsebasic.component.html'
-    })
-], NgbdCollapseBasic);
 exports.NgbdCollapseBasic = NgbdCollapseBasic;
 //# sourceMappingURL=ngcollapsebasic.component.js.map

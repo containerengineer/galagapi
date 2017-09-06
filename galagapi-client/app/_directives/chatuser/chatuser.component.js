@@ -11,23 +11,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var modelchatuser_1 = require("../../_models/modelchatuser");
-var ChatUserComponent = (function () {
+var ChatUserComponent = /** @class */ (function () {
     function ChatUserComponent() {
     }
     ChatUserComponent.prototype.ngOnInit = function () {
     };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", modelchatuser_1.ChatUser)
+    ], ChatUserComponent.prototype, "chat_user", void 0);
+    ChatUserComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'chatuser',
+            templateUrl: 'chatuser.component.html'
+        })
+    ], ChatUserComponent);
     return ChatUserComponent;
 }());
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", modelchatuser_1.ChatUser)
-], ChatUserComponent.prototype, "chat_user", void 0);
-ChatUserComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'chatuser',
-        templateUrl: 'chatuser.component.html'
-    })
-], ChatUserComponent);
 exports.ChatUserComponent = ChatUserComponent;
 //# sourceMappingURL=chatuser.component.js.map

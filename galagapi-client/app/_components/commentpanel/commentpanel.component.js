@@ -7,18 +7,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var CommentPanelComponent = (function () {
+var CommentPanelComponent = /** @class */ (function () {
     function CommentPanelComponent() {
     }
+    CommentPanelComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'commentpanel',
+            encapsulation: core_1.ViewEncapsulation.None,
+            templateUrl: 'commentpanel.component.html'
+        })
+    ], CommentPanelComponent);
     return CommentPanelComponent;
 }());
-CommentPanelComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'commentpanel',
-        encapsulation: core_1.ViewEncapsulation.None,
-        templateUrl: 'commentpanel.component.html'
-    })
-], CommentPanelComponent);
 exports.CommentPanelComponent = CommentPanelComponent;
 //# sourceMappingURL=commentpanel.component.js.map

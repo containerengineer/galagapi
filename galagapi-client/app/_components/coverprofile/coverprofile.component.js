@@ -7,18 +7,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var CoverProfileComponent = (function () {
+var CoverProfileComponent = /** @class */ (function () {
     function CoverProfileComponent() {
     }
+    CoverProfileComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'coverprofile',
+            encapsulation: core_1.ViewEncapsulation.None,
+            templateUrl: 'coverprofile.component.html'
+        })
+    ], CoverProfileComponent);
     return CoverProfileComponent;
 }());
-CoverProfileComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'coverprofile',
-        encapsulation: core_1.ViewEncapsulation.None,
-        templateUrl: 'coverprofile.component.html'
-    })
-], CoverProfileComponent);
 exports.CoverProfileComponent = CoverProfileComponent;
 //# sourceMappingURL=coverprofile.component.js.map

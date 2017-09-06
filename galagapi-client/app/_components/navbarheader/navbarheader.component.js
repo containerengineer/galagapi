@@ -10,23 +10,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var NavbarHeaderComponent = (function () {
+var NavbarHeaderComponent = /** @class */ (function () {
     function NavbarHeaderComponent() {
         this.name = 'Max';
     }
     NavbarHeaderComponent.prototype.sayMyName = function () {
         console.log('My name is', this.name);
     };
+    NavbarHeaderComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'navbarheader',
+            encapsulation: core_1.ViewEncapsulation.None,
+            templateUrl: 'navbarheader.component.html'
+        }),
+        __metadata("design:paramtypes", [])
+    ], NavbarHeaderComponent);
     return NavbarHeaderComponent;
 }());
-NavbarHeaderComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'navbarheader',
-        encapsulation: core_1.ViewEncapsulation.None,
-        templateUrl: 'navbarheader.component.html'
-    }),
-    __metadata("design:paramtypes", [])
-], NavbarHeaderComponent);
 exports.NavbarHeaderComponent = NavbarHeaderComponent;
 //# sourceMappingURL=navbarheader.component.js.map

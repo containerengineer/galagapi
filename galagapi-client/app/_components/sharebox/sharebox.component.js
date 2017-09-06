@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var modelidea_1 = require("../../_models/modelidea");
 var idea_service_1 = require("../../_services/ideaservice/idea.service");
-var ShareBoxComponent = (function () {
+var ShareBoxComponent = /** @class */ (function () {
     function ShareBoxComponent(ideaService) {
         this.ideaService = ideaService;
     }
@@ -24,16 +24,16 @@ var ShareBoxComponent = (function () {
             .then(function (idea) {
         });
     };
+    ShareBoxComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'sharebox',
+            encapsulation: core_1.ViewEncapsulation.None,
+            templateUrl: 'sharebox.component.html'
+        }),
+        __metadata("design:paramtypes", [idea_service_1.IdeaService])
+    ], ShareBoxComponent);
     return ShareBoxComponent;
 }());
-ShareBoxComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'sharebox',
-        encapsulation: core_1.ViewEncapsulation.None,
-        templateUrl: 'sharebox.component.html'
-    }),
-    __metadata("design:paramtypes", [idea_service_1.IdeaService])
-], ShareBoxComponent);
 exports.ShareBoxComponent = ShareBoxComponent;
 //# sourceMappingURL=sharebox.component.js.map

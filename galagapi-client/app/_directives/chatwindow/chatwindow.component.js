@@ -7,19 +7,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var ChatWindowComponent = (function () {
+var ChatWindowComponent = /** @class */ (function () {
     function ChatWindowComponent() {
     }
     ChatWindowComponent.prototype.ngOnInit = function () {
     };
+    ChatWindowComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'chatwindow',
+            templateUrl: 'chatwindow.component.html'
+        })
+    ], ChatWindowComponent);
     return ChatWindowComponent;
 }());
-ChatWindowComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'chatwindow',
-        templateUrl: 'chatwindow.component.html'
-    })
-], ChatWindowComponent);
 exports.ChatWindowComponent = ChatWindowComponent;
 //# sourceMappingURL=chatwindow.component.js.map

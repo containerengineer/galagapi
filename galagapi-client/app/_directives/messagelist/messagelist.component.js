@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var messagebox_service_1 = require("../../_services/messageboxservice/messagebox.service");
-var MessageListComponent = (function () {
+var MessageListComponent = /** @class */ (function () {
     function MessageListComponent(messageBoxService) {
         this.messageBoxService = messageBoxService;
     }
@@ -25,16 +25,16 @@ var MessageListComponent = (function () {
     MessageListComponent.prototype.onSelect = function (message) {
         this.selectedMessage = message;
     };
+    MessageListComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'messagelist',
+            templateUrl: 'messagelist.component.html',
+            providers: [messagebox_service_1.MessageBoxService]
+        }),
+        __metadata("design:paramtypes", [messagebox_service_1.MessageBoxService])
+    ], MessageListComponent);
     return MessageListComponent;
 }());
-MessageListComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'messagelist',
-        templateUrl: 'messagelist.component.html',
-        providers: [messagebox_service_1.MessageBoxService]
-    }),
-    __metadata("design:paramtypes", [messagebox_service_1.MessageBoxService])
-], MessageListComponent);
 exports.MessageListComponent = MessageListComponent;
 //# sourceMappingURL=messagelist.component.js.map

@@ -8,7 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var mock_chatusers_1 = require("../../_services/chatuserservice/mock-chatusers");
-var ChatUserService = (function () {
+var ChatUserService = /** @class */ (function () {
     function ChatUserService() {
     }
     ChatUserService.prototype.getChatUsers = function () {
@@ -22,10 +22,10 @@ var ChatUserService = (function () {
             setTimeout(function () { return resolve(_this.getChatUsers()); }, 2000);
         });
     };
+    ChatUserService = __decorate([
+        core_1.Injectable()
+    ], ChatUserService);
     return ChatUserService;
 }());
-ChatUserService = __decorate([
-    core_1.Injectable()
-], ChatUserService);
 exports.ChatUserService = ChatUserService;
 //# sourceMappingURL=chatuser.service.js.map

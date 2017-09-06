@@ -7,18 +7,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var NavbarFormComponent = (function () {
+var NavbarFormComponent = /** @class */ (function () {
     function NavbarFormComponent() {
     }
+    NavbarFormComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'navbarform',
+            encapsulation: core_1.ViewEncapsulation.None,
+            templateUrl: 'navbarform.component.html'
+        })
+    ], NavbarFormComponent);
     return NavbarFormComponent;
 }());
-NavbarFormComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'navbarform',
-        encapsulation: core_1.ViewEncapsulation.None,
-        templateUrl: 'navbarform.component.html'
-    })
-], NavbarFormComponent);
 exports.NavbarFormComponent = NavbarFormComponent;
 //# sourceMappingURL=navbarform.component.js.map

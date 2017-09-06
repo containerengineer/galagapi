@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var chatuser_service_1 = require("../../_services/chatuserservice/chatuser.service");
-var ChatListComponent = (function () {
+var ChatListComponent = /** @class */ (function () {
     function ChatListComponent(chatUserService) {
         this.chatUserService = chatUserService;
     }
@@ -25,16 +25,16 @@ var ChatListComponent = (function () {
     ChatListComponent.prototype.onSelect = function (chatUser) {
         this.selectedChatUser = chatUser;
     };
+    ChatListComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'chatlist',
+            templateUrl: 'chatlist.component.html',
+            providers: [chatuser_service_1.ChatUserService]
+        }),
+        __metadata("design:paramtypes", [chatuser_service_1.ChatUserService])
+    ], ChatListComponent);
     return ChatListComponent;
 }());
-ChatListComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'chatlist',
-        templateUrl: 'chatlist.component.html',
-        providers: [chatuser_service_1.ChatUserService]
-    }),
-    __metadata("design:paramtypes", [chatuser_service_1.ChatUserService])
-], ChatListComponent);
 exports.ChatListComponent = ChatListComponent;
 //# sourceMappingURL=chatlist.component.js.map

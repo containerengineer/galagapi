@@ -10,18 +10,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var PersonInfoComponent = (function () {
+var PersonInfoComponent = /** @class */ (function () {
     function PersonInfoComponent() {
     }
+    PersonInfoComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'personinfo',
+            templateUrl: 'personinfo.component.html'
+        }),
+        __metadata("design:paramtypes", [])
+    ], PersonInfoComponent);
     return PersonInfoComponent;
 }());
-PersonInfoComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'personinfo',
-        templateUrl: 'personinfo.component.html'
-    }),
-    __metadata("design:paramtypes", [])
-], PersonInfoComponent);
 exports.PersonInfoComponent = PersonInfoComponent;
 //# sourceMappingURL=personinfo.component.js.map
