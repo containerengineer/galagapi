@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -40,15 +41,16 @@ public class IdeaController {
         return new ResponseEntity<List<Idea>>(list, HttpStatus.OK);
     }
 
-    @PostMapping("idea")
-    public ResponseEntity<Void> addIdea(@RequestBody Idea idea, UriComponentsBuilder builder) {
-        boolean flag = ideaService.addIdea(idea);
-        if (flag == false) {
-            return new ResponseEntity<Void>(HttpStatus.CONFLICT);
+     @PostMapping(path = "idea", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Idea> addIdea(@RequestBody Idea idea, UriComponentsBuilder builder) {
+        Idea flag = ideaService.addIdea(idea);
+        if (flag == null) {
+            return new ResponseEntity<Idea>(HttpStatus.CONFLICT);
         }
         HttpHeaders headers = new HttpHeaders();
         headers.setLocation(builder.path("/idea/{id}").buildAndExpand(idea.getId()).toUri());
-        return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
+       
+        return new ResponseEntity<Idea>(idea, headers, HttpStatus.CREATED);
     }
 
     @PutMapping("idea")

@@ -23,12 +23,12 @@ public class IdeaService implements IIdeaService {
 		return ideaDAO.getAllIdeas();
 	}
 	@Override
-	public synchronized boolean addIdea(Idea idea){
+	public synchronized Idea addIdea(Idea idea){
        if (ideaDAO.ideaExists(idea.getTitle(), idea.getCategory())) {
-    	   return false;
+    	   return null;
        } else {
     	   ideaDAO.addIdea(idea);
-    	   return true;
+    	   return idea;
        }
 	}
 	@Override

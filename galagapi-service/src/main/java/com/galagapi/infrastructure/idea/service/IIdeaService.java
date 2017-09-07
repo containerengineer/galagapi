@@ -7,7 +7,7 @@ import java.util.List;
 public interface IIdeaService {
      List<Idea> getAllIdeas();
      Idea getIdeaById(int id);
-     boolean addIdea(Idea idea);
+     Idea addIdea(Idea idea);
      void updateIdea(Idea idea);
      void deleteIdea(int id);
 }
