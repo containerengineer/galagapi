@@ -12,56 +12,47 @@ Object.defineProperty(exports, "__esModule", { value: true });
 require("rxjs/add/operator/map");
 require("rxjs/add/operator/switchMap");
 var core_1 = require("@angular/core");
-var router_1 = require("@angular/router");
-var common_1 = require("@angular/common");
 var modelidea_1 = require("../../_models/modelidea");
-var idea_service_1 = require("../../_services/ideaservice/idea.service");
+var idea_data_service_1 = require("../../_services/ideaservice/idea-data.service");
+var core_2 = require("@angular/core");
 var IdeaComponent = /** @class */ (function () {
-    function IdeaComponent(ideaService, router, location) {
-        this.ideaService = ideaService;
-        this.router = router;
-        this.location = location;
+    function IdeaComponent(ideaDataService) {
+        this.ideaDataService = ideaDataService;
+        this.ideas = [];
     }
     IdeaComponent.prototype.ngOnInit = function () {
-        //   this.route.params.switchMap((params: Params) => this.ideaService.getIdea(+params['id']))
-        //     .subscribe(idea => this.idea = idea);
-        this.ideas = this.ideaService.getIdeas();
-    };
-    IdeaComponent.prototype.updateIdea = function () {
-        this.ideaService.updateIdea(this.idea);
-        this.goBack();
-    };
-    IdeaComponent.prototype.deleteIdea = function (idea) {
         var _this = this;
-        this.ideaService
-            .deleteIdea(idea)
-            .then(function () {
-            //  this.ideas = this.ideas.filter(b => b !== idea);
-            if (_this.selectedIdea === idea) {
-                _this.selectedIdea = null;
-            }
+        this.newIdea = new modelidea_1.Idea();
+        this.ideaDataService
+            .getAllIdeas()
+            .subscribe(function (ideas) {
+            _this.ideas = ideas;
         });
     };
-    IdeaComponent.prototype.showInfo = function (idea) {
-        this.selectedIdea = idea;
-        this.router.navigate(['/information', this.selectedIdea.id]);
+    IdeaComponent.prototype.onAddIdea = function (idea) {
+        var _this = this;
+        this.ideaDataService
+            .addIdea(idea)
+            .subscribe(function (newIdea) {
+            _this.ideas.unshift(newIdea);
+        });
     };
-    IdeaComponent.prototype.goBack = function () {
-        this.location.back();
+    IdeaComponent.prototype.onRemoveIdea = function (idea) {
+        var _this = this;
+        this.ideaDataService
+            .deleteIdeaById(idea.id)
+            .subscribe(function (_) {
+            _this.ideas = _this.ideas.filter(function (t) { return t.id !== idea.id; });
+        });
     };
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", modelidea_1.Idea)
-    ], IdeaComponent.prototype, "idea", void 0);
     IdeaComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: '[idea]',
             templateUrl: 'idea.component.html'
         }),
-        __metadata("design:paramtypes", [idea_service_1.IdeaService,
-            router_1.Router,
-            common_1.Location])
+        core_2.Injectable(),
+        __metadata("design:paramtypes", [idea_data_service_1.IdeaDataService])
     ], IdeaComponent);
     return IdeaComponent;
 }());

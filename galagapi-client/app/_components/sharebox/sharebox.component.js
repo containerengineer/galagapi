@@ -11,18 +11,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var modelidea_1 = require("../../_models/modelidea");
-var idea_service_1 = require("../../_services/ideaservice/idea.service");
+var idea_component_1 = require("../../_components/idea/idea.component");
 var ShareBoxComponent = /** @class */ (function () {
-    function ShareBoxComponent(ideaService) {
-        this.ideaService = ideaService;
+    function ShareBoxComponent(ideaComponent) {
+        this.ideaComponent = ideaComponent;
     }
     ShareBoxComponent.prototype.ngOnInit = function () {
         this.newIdea = new modelidea_1.Idea();
     };
     ShareBoxComponent.prototype.createIdea = function (idea) {
-        this.ideaService.createIdea(idea)
-            .then(function (idea) {
-        });
+        this.ideaComponent.onAddIdea(idea);
     };
     ShareBoxComponent = __decorate([
         core_1.Component({
@@ -31,7 +29,7 @@ var ShareBoxComponent = /** @class */ (function () {
             encapsulation: core_1.ViewEncapsulation.None,
             templateUrl: 'sharebox.component.html'
         }),
-        __metadata("design:paramtypes", [idea_service_1.IdeaService])
+        __metadata("design:paramtypes", [idea_component_1.IdeaComponent])
     ], ShareBoxComponent);
     return ShareBoxComponent;
 }());

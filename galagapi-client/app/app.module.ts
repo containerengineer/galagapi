@@ -29,7 +29,7 @@ import {ToolbarComponent} from './_directives/toolbar/index';
 
 
 import {AuthGuard} from './_guards/index';
-import {AlertService, AuthenticationService, UserService, IdeaService} from './_services/index';
+import {AlertService, AuthenticationService, UserService, IdeaService, IdeaDataService} from './_services/index';
 import {HomeComponent} from './home/index';
 import {LoginComponent} from './login/index';
 import {NavbarHeaderComponent} from './_components/navbarheader/index';
@@ -92,6 +92,8 @@ import {RegisterComponent} from './register/index';
         AuthenticationService,
         UserService,
         IdeaService,
+        IdeaDataService,
+        IdeaComponent,
         // providers used to create fake backend
         fakeBackendProvider,
         MockBackend,

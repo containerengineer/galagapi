@@ -1,78 +1,73 @@
-import {Injectable} from '@angular/core';
-
-import {Headers, Http} from '@angular/http';
-
-import 'rxjs/add/operator/toPromise';
+ 
 
 import {Idea} from '../../_models/modelidea';
-
-import {Observable} from 'rxjs/Observable';
+ 
+ import { Injectable } from '@angular/core';
+import { environment } from '../../_environments/environment';
+import { Http, Response,RequestOptions, Headers } from '@angular/http';
+ 
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
 
+const API_URL = environment.apiUrl;
+const headers = new Headers({ 'Content-Type': 'application/json' });
+const options = new RequestOptions( {headers: headers});
 @Injectable()
+export class  IdeaService {
 
-export class IdeaService {
+  constructor(
+    private http: Http
+  ) {
+  }
 
-    constructor(private http: Http) {
+  public getAllIdeas(): Observable<Idea[]> {
+    return this.http
+      .get(API_URL + '/ideas')
+      .map(response => {
+        const ideas = response.json();
+        return ideas.map((idea: Idea) => new Idea(idea));
+      })
+      .catch(this.handleError);
+  }
 
-    }
+  public createIdea(idea: Idea): Observable<Idea> {
+    return this.http
+      .post(API_URL + '/idea', idea, options)
+      .map(response => {
+        return new Idea(response.json());
+      })
+      .catch(this.handleError);
+  }
 
-    private headers = new Headers({'Content-Type': 'application/json'});
-    private ideasUrl = 'http://localhost:8080/user/ideas';
-    private ideaUrl = 'http://localhost:8080/user/idea';
-    private  ideas: Observable<Idea[]>;
-    getIdeas(): Observable<Idea[]> {
-        
-        this.ideas= this.http.get(this.ideasUrl)
-            .map(res => res.json());
-        
-      return this.ideas;
+  public getIdeaById(ideaId: number): Observable<Idea> {
+    return this.http
+      .get(API_URL + '/idea/' + ideaId)
+      .map(response => {
+        return new Idea(response.json());
+      })
+      .catch(this.handleError);
+  }
 
-    }
+  public updateIdea(idea: Idea): Observable<Idea> {
+    return this.http
+      .put(API_URL + '/idea/' + idea.id, idea)
+      .map(response => {
+        return new Idea(response.json());
+      })
+      .catch(this.handleError);
+  }
 
-    getIdeasO() {
-        return this.http.get(this.ideasUrl)
-            .map(res => res.json())
-            .subscribe((data) => {
-                return data;
-            });
-    }
-    getIdea(id: number): Promise<Idea> {
-        const url = `${this.ideaUrl}/${id}`;
-        return this.http.get(url)
-            .toPromise()
-            .then(response => response.json().data as Idea)
-            .catch(this.handleError);
-    }
+  public deleteIdeaById(ideaId: number): Observable<null> {
+    return this.http
+      .delete(API_URL + '/idea/' + ideaId)
+      .map(response => null)
+      .catch(this.handleError);
+  }
 
-
-    createIdea(idea: Idea): Promise<Idea> {
-        return this.http
-            .post(this.ideaUrl, JSON.stringify(idea), {headers: this.headers})
-            .toPromise()
-            .then(res => res.json().data as Idea)
-            .catch(this.handleError);
-    }
-
-    updateIdea(idea: Idea): Promise<Idea> {
-        const url = `${this.ideaUrl}/${idea.id}`;
-        return this.http
-            .put(url, JSON.stringify(idea), {headers: this.headers})
-            .toPromise()
-            .then(() => idea)
-            .catch(this.handleError);
-    }
-
-    deleteIdea(idea: Idea): Promise<void> {
-        const url = `${this.ideaUrl}/${idea.id}`;
-        return this.http.delete(url, {headers: this.headers})
-            .toPromise()
-            .then(() => null)
-            .catch(this.handleError);
-    }
-
-    private handleError(error: any): Promise<any> {
-        console.error('An error occurred', error);
-        return Promise.reject(error.message || error);
-    }
+  private handleError (error: Response | any) {
+    console.error('ApiService::handleError', error);
+    return Observable.throw(error);
+  }
 }

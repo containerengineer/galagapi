@@ -1,62 +1,66 @@
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
-import {Component, OnInit, Input} from '@angular/core';
-import {Router, Params} from '@angular/router';
-import {Location} from '@angular/common';
+import {Component, OnInit} from '@angular/core';
+
 
 import {Idea} from '../../_models/modelidea';
-import {IdeaService} from '../../_services/ideaservice/idea.service'
-import {Observable} from 'rxjs/Observable';
+import {IdeaDataService} from '../../_services/ideaservice/idea-data.service'
 
+
+import {Injectable} from '@angular/core';
 
 @Component({
     moduleId: module.id,
     selector: '[idea]',
-    templateUrl: 'idea.component.html' 
- 
-})
-export class IdeaComponent implements OnInit {
-  @Input()
-   public  idea: Idea;
+    templateUrl: 'idea.component.html'
 
-    ideas: Observable<Idea[]>;
-    selectedIdea: Idea;
+})
+@Injectable()
+export class IdeaComponent implements OnInit {
+
+    ideas: Idea[] = [];
+    newIdea: Idea;
+
 
     constructor(
-        private ideaService: IdeaService,
-        private router: Router,
-        private location: Location
-    ) {}
-
-
-    ngOnInit(): void {
-     //   this.route.params.switchMap((params: Params) => this.ideaService.getIdea(+params['id']))
-       //     .subscribe(idea => this.idea = idea);
-        
-                this.ideas = this.ideaService.getIdeas();
-
-   
-     }
-    updateIdea(): void {
-        this.ideaService.updateIdea(this.idea);
-        this.goBack();
+        private ideaDataService: IdeaDataService
+    ) {
     }
 
-    deleteIdea(idea: Idea): void {
-        this.ideaService
-            .deleteIdea(idea)
-            .then(() => {
-               //  this.ideas = this.ideas.filter(b => b !== idea);
-                if (this.selectedIdea === idea) {this.selectedIdea = null;}
-            });
+    public ngOnInit() {
+        this.newIdea = new Idea();
+        this.ideaDataService
+            .getAllIdeas()
+            .subscribe(
+            (ideas) => {
+                this.ideas = ideas;
+            }
+            );
+
+
+
     }
 
-    showInfo(idea: Idea): void {
-        this.selectedIdea = idea;
-        this.router.navigate(['/information', this.selectedIdea.id]);
+    onAddIdea(idea: Idea) {
+        this.ideaDataService
+            .addIdea(idea)
+            .subscribe(
+            (newIdea) => {
+                this.ideas.unshift(newIdea);
+            }
+            );
     }
-     goBack(): void {
-        this.location.back();
+
+
+
+    onRemoveIdea(idea: Idea) {
+        this.ideaDataService
+            .deleteIdeaById(idea.id)
+            .subscribe(
+            (_) => {
+                this.ideas = this.ideas.filter((t) => t.id !== idea.id);
+            }
+            );
     }
 
 }

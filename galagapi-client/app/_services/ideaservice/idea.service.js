@@ -9,61 +9,63 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var modelidea_1 = require("../../_models/modelidea");
 var core_1 = require("@angular/core");
+var environment_1 = require("../../_environments/environment");
 var http_1 = require("@angular/http");
-require("rxjs/add/operator/toPromise");
+var Observable_1 = require("rxjs/Observable");
 require("rxjs/add/operator/map");
+require("rxjs/add/operator/catch");
+require("rxjs/add/observable/throw");
+var API_URL = environment_1.environment.apiUrl;
+var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+var options = new http_1.RequestOptions({ headers: headers });
 var IdeaService = /** @class */ (function () {
     function IdeaService(http) {
         this.http = http;
-        this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-        this.ideasUrl = 'http://localhost:8080/user/ideas';
-        this.ideaUrl = 'http://localhost:8080/user/idea';
     }
-    IdeaService.prototype.getIdeas = function () {
-        this.ideas = this.http.get(this.ideasUrl)
-            .map(function (res) { return res.json(); });
-        return this.ideas;
-    };
-    IdeaService.prototype.getIdeasO = function () {
-        return this.http.get(this.ideasUrl)
-            .map(function (res) { return res.json(); })
-            .subscribe(function (data) {
-            return data;
-        });
-    };
-    IdeaService.prototype.getIdea = function (id) {
-        var url = this.ideaUrl + "/" + id;
-        return this.http.get(url)
-            .toPromise()
-            .then(function (response) { return response.json().data; })
+    IdeaService.prototype.getAllIdeas = function () {
+        return this.http
+            .get(API_URL + '/ideas')
+            .map(function (response) {
+            var ideas = response.json();
+            return ideas.map(function (idea) { return new modelidea_1.Idea(idea); });
+        })
             .catch(this.handleError);
     };
     IdeaService.prototype.createIdea = function (idea) {
         return this.http
-            .post(this.ideaUrl, JSON.stringify(idea), { headers: this.headers })
-            .toPromise()
-            .then(function (res) { return res.json().data; })
+            .post(API_URL + '/idea', idea, options)
+            .map(function (response) {
+            return new modelidea_1.Idea(response.json());
+        })
+            .catch(this.handleError);
+    };
+    IdeaService.prototype.getIdeaById = function (ideaId) {
+        return this.http
+            .get(API_URL + '/idea/' + ideaId)
+            .map(function (response) {
+            return new modelidea_1.Idea(response.json());
+        })
             .catch(this.handleError);
     };
     IdeaService.prototype.updateIdea = function (idea) {
-        var url = this.ideaUrl + "/" + idea.id;
         return this.http
-            .put(url, JSON.stringify(idea), { headers: this.headers })
-            .toPromise()
-            .then(function () { return idea; })
+            .put(API_URL + '/idea/' + idea.id, idea)
+            .map(function (response) {
+            return new modelidea_1.Idea(response.json());
+        })
             .catch(this.handleError);
     };
-    IdeaService.prototype.deleteIdea = function (idea) {
-        var url = this.ideaUrl + "/" + idea.id;
-        return this.http.delete(url, { headers: this.headers })
-            .toPromise()
-            .then(function () { return null; })
+    IdeaService.prototype.deleteIdeaById = function (ideaId) {
+        return this.http
+            .delete(API_URL + '/idea/' + ideaId)
+            .map(function (response) { return null; })
             .catch(this.handleError);
     };
     IdeaService.prototype.handleError = function (error) {
-        console.error('An error occurred', error);
-        return Promise.reject(error.message || error);
+        console.error('ApiService::handleError', error);
+        return Observable_1.Observable.throw(error);
     };
     IdeaService = __decorate([
         core_1.Injectable(),

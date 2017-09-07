@@ -1,4 +1,26 @@
-<div   *ngFor="let idea of ideas|async" (click)="showInfo(idea)" class="col-xs-12 col-md-6 col-lg-4 item">
+
+<div class="col-xs-12 col-md-6 col-lg-4 item">
+    <div class="timeline-block">
+
+        <div class="panel panel-default share clearfix-xs">
+            <div class="panel-heading panel-heading-gray title">
+                What&acute;s new
+            </div>
+            <div class="panel-body">
+                <textarea  [(ngModel)]="newIdea.title" name="status" class="form-control share-text" rows="3" placeholder="Share your status..."></textarea>
+            </div>
+            <div class="panel-footer share-buttons">
+                <a href="#"><i class="fa fa-map-marker"></i></a>
+                <a href="#"><i class="fa fa-photo"></i></a>
+                <a href="#"><i class="fa fa-video-camera"></i></a>
+                <button  class="btn btn-primary btn-xs pull-right " href="#"  md-raised-button (click)="onAddIdea(newIdea)">Post</button>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<div   *ngFor="let idea of ideas" (click)="showInfo(idea)" class="col-xs-12 col-md-6 col-lg-4 item">
     <div class="timeline-block">
 
         <div class="panel panel-default">
