@@ -2,6 +2,7 @@ package com.galagapi.infrastructure.idea.controller;
 
 import com.galagapi.infrastructure.idea.entity.Idea;
 import com.galagapi.infrastructure.idea.service.IIdeaService;
+import com.galagapi.infrastructure.kafka.producer.Sender;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.util.UriComponentsBuilder;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = {"http://localhost:3000","http://localhost:9092" })
 
 @Controller
 @RequestMapping("user")
@@ -41,7 +42,12 @@ public class IdeaController {
         return new ResponseEntity<List<Idea>>(list, HttpStatus.OK);
     }
 
-     @PostMapping(path = "idea", consumes = MediaType.APPLICATION_JSON_VALUE)
+    private static String HELLOWORLD_TOPIC = "helloworld.t";
+
+    @Autowired
+    private Sender sender;
+
+    @PostMapping(path = "idea", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Idea> addIdea(@RequestBody Idea idea, UriComponentsBuilder builder) {
         Idea flag = ideaService.addIdea(idea);
         if (flag == null) {
@@ -49,7 +55,7 @@ public class IdeaController {
         }
         HttpHeaders headers = new HttpHeaders();
         headers.setLocation(builder.path("/idea/{id}").buildAndExpand(idea.getId()).toUri());
-       
+     //   sender.send(HELLOWORLD_TOPIC, "Hello Spring Kafka!");
         return new ResponseEntity<Idea>(idea, headers, HttpStatus.CREATED);
     }
 
